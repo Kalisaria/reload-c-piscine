@@ -6,17 +6,11 @@
 /*   By: dmeyer <dmeyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 03:45:22 by dmeyer            #+#    #+#             */
-/*   Updated: 2026/10/02 12:30:47 by dmeyer           ###   ########.fr       */
+/*   Updated: 2026/10/06 18:37:37 by dmeyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-//void	ft_putchar(char c);
+void	ft_putchar(char c);
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -68,16 +62,18 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
-	if (argc == 1)
-		return (ft_putchar('\n'), 0);
-	sort_args(argc, argv);
-	i = 1;
-	while (i < argc)
+	if (argc <= 1)
+		return (0);
+	else
 	{
-		ft_putstr(argv[i]);
-		i++;
-		if(i < argc)
+		sort_args(argc, argv);
+		i = 1;
+		while (i < argc)
+		{
+			ft_putstr(argv[i]);
+			i++;
 			ft_putchar('\n');
+		}
 	}
 	return (0);
 }

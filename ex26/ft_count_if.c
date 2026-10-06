@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmeyer <dmeyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 20:44:50 by dmeyer            #+#    #+#             */
-/*   Updated: 2026/10/02 15:56:55 by dmeyer           ###   ########.fr       */
+/*   Created: 2026/10/06 16:55:52 by dmeyer            #+#    #+#             */
+/*   Updated: 2026/10/06 22:49:08 by dmeyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-int	ft_recursive_factorial(int nb)
+int	ft_count_if(char **tab, int (*f)(char*))
 {
 	int	res;
+	int	i;
 
-	res = 1;
-	if (nb < 0)
-		res = 0;
-	else
+	res = 0;
+	i = 0;
+	while (tab[i] != 0)
 	{
-		if (nb == 0 || nb == 1)
-			res = 1;
-		else
-		{
-			res = nb;
-			nb--;
-			res = res * ft_recursive_factorial(nb);
-			if (res < 0)
-				res = 0;
-		}
+		if (f(tab[i]) == 1)
+			res++;
+		i++;
 	}
 	return (res);
 }
-// int main(void)
-// {
-// 	int a = 18;
-// 	printf("el fatorial de %d es %d",a,ft_recursive_factorial(a));
-// }

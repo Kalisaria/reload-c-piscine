@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmeyer <dmeyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 20:44:50 by dmeyer            #+#    #+#             */
-/*   Updated: 2026/10/02 15:56:55 by dmeyer           ###   ########.fr       */
+/*   Created: 2026/10/01 03:10:23 by dmeyer            #+#    #+#             */
+/*   Updated: 2026/10/06 20:23:42 by dmeyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-int	ft_recursive_factorial(int nb)
-{
-	int	res;
+#include <unistd.h>
 
-	res = 1;
-	if (nb < 0)
-		res = 0;
-	else
-	{
-		if (nb == 0 || nb == 1)
-			res = 1;
-		else
-		{
-			res = nb;
-			nb--;
-			res = res * ft_recursive_factorial(nb);
-			if (res < 0)
-				res = 0;
-		}
-	}
-	return (res);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
-// int main(void)
-// {
-// 	int a = 18;
-// 	printf("el fatorial de %d es %d",a,ft_recursive_factorial(a));
-// }
+
+void	ft_putstr(char *str)
+{
+	int	cont;
+
+	cont = 0;
+	while (str[cont] != '\0')
+	{
+		ft_putchar(str[cont]);
+		cont++;
+	}
+}
